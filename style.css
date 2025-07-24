@@ -112,3 +112,7 @@ h4 {
   height: 300px;
   object-fit: cover;
 }
+
+#geto-img {
+  pointer-events: none;
+}
