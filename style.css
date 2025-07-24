@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #fdfdfd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  text-align: center;
+}
+
+#button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+h4 {
+    margin-bottom: 20px;
+}
+
+.food-list {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+
+.food {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: grab;
+}
+
+.food .emoji {
+  font-size: 2.5rem;
+}
+
+.food .label {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.geto-area {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+}
+
+#geto-img {
+  width: 100%;
+  max-width: 250px;
+  margin-bottom: 10px;
+}
+
+.counter {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#result-btn {
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  background-color: #222;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-group {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-group button {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background-color: #333;
+  color: white;
+}
+
+#result-image {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}

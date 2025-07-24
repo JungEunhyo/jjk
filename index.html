@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게토 스구루 키우기</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>게토 스구루 키우기</h1>
+    <h4>음식을 드래그해서 먹이세요!</h4>
+
+    <div class="food-list">
+      <div class="food" draggable="true" data-food="jureong">
+        <div class="emoji">🟤</div>
+        <div class="label">주령구</div>
+      </div>
+      <div class="food" draggable="true" data-food="soba">
+        <div class="emoji">🍜</div>
+        <div class="label">소바</div>
+      </div>
+      <div class="food" draggable="true" data-food="parfait">
+        <div class="emoji">🍨</div>
+        <div class="label">파르페</div>
+      </div>
+    </div>
+
+    <div class="geto-area" id="geto">
+      <img src="image/geto.png" alt="게토 스구루" id="geto-img">
+      <div class="counter">먹인 횟수: <span id="feed-count">0</span>/5</div>
+    </div>
+    <div id="button-container">
+    <button id="result-btn" style="display: none;">10년 뒤 모습 보기</button>
+  </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
