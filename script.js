@@ -19,30 +19,26 @@ foods.forEach(food => {
   });
 
   food.addEventListener('touchend', (e) => {
-    if (food.dataset.touching !== 'true') return;
+  if (food.dataset.touching !== 'true') return;
 
-    const dropTarget = document.elementFromPoint(
-      food.dataset.startX,
-      food.dataset.startY
-    );
+  const touch = e.changedTouches[0];  // ⭐ 터치 끝 지점 기준
+  const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
 
-    if (dropTarget && dropTarget.id === 'geto') {
-      if (feedCount >= 5) return;
+  if (dropTarget && (dropTarget.id === 'geto' || dropTarget.closest('#geto'))) {
+    if (feedCount >= 5) return;
 
-      const foodType = food.dataset.food;
-      foodLog.push(foodType);
-      feedCount++;
-      feedCounter.textContent = feedCount;
+    const foodType = food.dataset.food;
+    foodLog.push(foodType);
+    feedCount++;
+    feedCounter.textContent = feedCount;
 
-      if (feedCount === 5) {
-        resultBtn.style.display = 'block';
-      }
+    if (feedCount === 5) {
+      resultBtn.style.display = 'block';
     }
+  }
 
-    food.dataset.touching = 'false';
-  });
+  food.dataset.touching = 'false';
 });
-
 
 getoArea.addEventListener('dragover', (e) => {
   e.preventDefault();
