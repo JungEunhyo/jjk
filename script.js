@@ -10,7 +10,39 @@ foods.forEach(food => {
   food.addEventListener('dragstart', (e) => {
     e.dataTransfer.setData("text/plain", food.dataset.food);
   });
+
+  food.addEventListener('touchstart', (e) => {
+    const touch = e.touches[0];
+    food.dataset.touching = 'true';
+    food.dataset.startX = touch.clientX;
+    food.dataset.startY = touch.clientY;
+  });
+
+  food.addEventListener('touchend', (e) => {
+    if (food.dataset.touching !== 'true') return;
+
+    const dropTarget = document.elementFromPoint(
+      food.dataset.startX,
+      food.dataset.startY
+    );
+
+    if (dropTarget && dropTarget.id === 'geto') {
+      if (feedCount >= 5) return;
+
+      const foodType = food.dataset.food;
+      foodLog.push(foodType);
+      feedCount++;
+      feedCounter.textContent = feedCount;
+
+      if (feedCount === 5) {
+        resultBtn.style.display = 'block';
+      }
+    }
+
+    food.dataset.touching = 'false';
+  });
 });
+
 
 getoArea.addEventListener('dragover', (e) => {
   e.preventDefault();
