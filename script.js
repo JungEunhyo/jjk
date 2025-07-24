@@ -11,12 +11,28 @@ foods.forEach(food => {
     e.dataTransfer.setData("text/plain", food.dataset.food);
   });
 
-  food.addEventListener('touchstart', (e) => {
-    const touch = e.touches[0];
-    food.dataset.touching = 'true';
-    food.dataset.startX = touch.clientX;
-    food.dataset.startY = touch.clientY;
-  });
+  food.addEventListener('touchend', (e) => {
+  if (food.dataset.touching !== 'true') return;
+
+  const touch = e.changedTouches[0];
+  const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
+
+  // geto 내부를 터치한 경우 인식
+  if (dropTarget && (dropTarget.id === 'geto' || dropTarget.closest('#geto'))) {
+    if (feedCount >= 5) return;
+
+    const foodType = food.dataset.food;
+    foodLog.push(foodType);
+    feedCount++;
+    feedCounter.textContent = feedCount;
+
+    if (feedCount === 5) {
+      resultBtn.style.display = 'block';
+    }
+  }
+
+  food.dataset.touching = 'false';
+});
 
   food.addEventListener('touchend', (e) => {
   if (food.dataset.touching !== 'true') return;
